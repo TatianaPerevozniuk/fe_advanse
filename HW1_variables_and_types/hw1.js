@@ -36,9 +36,9 @@ const avgPrice = sumPriceAll/3;
 const roundAvgPrice = Math.round(avgPrice/0.01)*0.01;
 console.log(`Среднее значение цен: ${roundAvgPrice}`);
 
-const sale = Math.round(Math.random()*sumPriceAll/0.01)*0.01;
-const toPay = Math.round((sumPriceAll - sale)/0.01)*0.01;
-const netProfit = Math.round((sumPriceAll/2-sale)/0.01)*0.01;
+const sale = Number((Math.random()*sumPriceAll).toFixed(2));
+const toPay = Number((sumPriceAll - sale).toFixed(2));
+const netProfit = Number((sumPriceAll/2-sale).toFixed(2));
 console.log(`Скидка: ${sale}`);
 console.log(`К оплате: ${toPay}`);
 console.log(`Чистая прибыль: ${netProfit}`);
