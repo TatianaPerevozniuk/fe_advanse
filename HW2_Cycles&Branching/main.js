@@ -6,9 +6,10 @@ let SumRangeOfNumbers = 0;
 alert('It is a program for calculating the sum of all numbers in a given range. ' +
     'And also the calculation of the sum without paired numbers.');
 function pullNumber(textInputOrder){
-    let userNumber
+    let userNumber;
     for (let i = 0; i < 3; i++) {
-        let attempts = 3 - i;
+        const totalAttempts = 3;
+        let attempts = totalAttempts - i;
         userNumber = Number(prompt(`${attempts} attempts left. Enter the ${textInputOrder} number: `));
         if (Number.isInteger(userNumber)) {
             break;
@@ -19,35 +20,14 @@ function pullNumber(textInputOrder){
 firstUserNumber = pullNumber('first');
 secondUserNumber = pullNumber('second');
 
-
 skipEvenNumbers = confirm("Do you want to skip all paired numbers from a given range? " +
     "These numbers will not be taken into account in the calculation!");
-
-if(firstUserNumber <= secondUserNumber){
-    for(let count = firstUserNumber;count <= secondUserNumber;count++){
-        if (skipEvenNumbers){
-            if(count % 2 === 0){
-                continue;
-            }
-            SumRangeOfNumbers += count;
+const minNumber = Math.min(firstUserNumber,secondUserNumber);
+const maxNumber = Math.max(firstUserNumber,secondUserNumber);
+for(let count = minNumber;count <= maxNumber;count++){
+        if(skipEvenNumbers && !(count % 2)){
+            continue;
         }
-        else {
-            SumRangeOfNumbers += count;
-        }
-    }
-    alert(`Sum range of numbers: ${SumRangeOfNumbers}`);
+        SumRangeOfNumbers += count;
 }
-else {
-    for (let count = firstUserNumber; count >= secondUserNumber; count--) {
-        if (skipEvenNumbers) {
-            if (count % 2 === 0) {
-                continue;
-            }
-            SumRangeOfNumbers += count;
-        } else {
-            SumRangeOfNumbers += count;
-        }
-    }
-    alert(`Sum range of numbers: ${SumRangeOfNumbers}`);
-}
-
+alert(`Sum range of numbers: ${SumRangeOfNumbers}`);
