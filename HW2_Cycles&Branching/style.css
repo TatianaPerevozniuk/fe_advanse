@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("assets/fonts/LatoRegular.woff2") format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+.banner_background{
+    min-height: 100vh;
+    background: linear-gradient(90deg, rgba(213, 32, 71, 0.8) 0%, rgba(238, 61, 27, 0.8) 100%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.intro_inner_title{
+    width: 100%;
+    max-width: 578px;
+    margin: 0 auto;
+}
+.intro_title{
+    font-weight: bold;
+    font-size: 5em;
+    line-height: 86px;
+    margin: 0 auto;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+@media screen and (max-width:468px) {
+    .intro_title {font-size: 32px;}
+}
