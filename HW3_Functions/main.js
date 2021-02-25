@@ -94,6 +94,20 @@ function getRandomPassword(numberOfDigits = 8){
 console.log(getRandomPassword());
 
 
+function deleteLetters(letter,word){
+    const letterToLowerCase = letter.toLowerCase();
+    const wordToLowerCase = word.toLowerCase();
+    let newWord = '';
+    for (let i = 0; i < wordToLowerCase.length; i++){
+        if (wordToLowerCase[i] !== letterToLowerCase){
+            newWord += wordToLowerCase[i];
+        }
+    }
+    return newWord;
+}
+console.log(deleteLetters('a', "blablabla"));
+
+
 document.writeln(`Function №1: ${getMaxDigit(673972)} </br>`);
 document.writeln(`Function №2: ${getNumberToAPower(4,3)} </br>`);
 document.writeln(`Function №3: ${firstLetterUp('taNia')} </br>`);
@@ -102,3 +116,4 @@ document.writeln(`Function №5: ${getRandomNumber(5.3,10.5896)} </br>`);
 document.writeln(`Function №6: ${countLetter( 'Асталавіста','А')} </br>`);
 document.writeln(`Function №7: ${convertCurrency('2500uah')} </br>`);
 document.writeln(`Function №8: ${getRandomPassword()} </br>`);
+document.writeln(`Function №9: ${deleteLetters('a', "blablabla")} </br>`);
