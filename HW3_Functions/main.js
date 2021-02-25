@@ -43,7 +43,7 @@ function getRandomNumber(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
 }
-console.log(getRandomNumber(5.3,10.5896));
+console.log(getRandomNumber(10,5));
 
 
 function countLetter(word, letter){
@@ -79,6 +79,21 @@ function convertCurrency(cur){
 console.log(convertCurrency('2500uah'));
 
 
+function getRandomPassword(numberOfDigits = 8){
+    if (Number.isInteger(numberOfDigits)){
+        let password = [];
+        for (let i = 0; i < numberOfDigits; i++){
+            password[i] = Math.floor(Math.random()*10);
+        }
+        return Number(password.join(''));
+    }
+    else{
+        return 'The input is incorrect. Enter an integer!';
+    }
+}
+console.log(getRandomPassword());
+
+
 document.writeln(`Function №1: ${getMaxDigit(673972)} </br>`);
 document.writeln(`Function №2: ${getNumberToAPower(4,3)} </br>`);
 document.writeln(`Function №3: ${firstLetterUp('taNia')} </br>`);
@@ -86,3 +101,4 @@ document.writeln(`Function №4: ${getAmountWithoutTax(1000)} </br>`);
 document.writeln(`Function №5: ${getRandomNumber(5.3,10.5896)} </br>`);
 document.writeln(`Function №6: ${countLetter( 'Асталавіста','А')} </br>`);
 document.writeln(`Function №7: ${convertCurrency('2500uah')} </br>`);
+document.writeln(`Function №8: ${getRandomPassword()} </br>`);
