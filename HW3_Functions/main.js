@@ -107,6 +107,17 @@ function deleteLetters(letter,word){
 }
 console.log(deleteLetters('a', "blablabla"));
 
+function isPalindrome(str){
+    str = str.replace(/\s/g, '').toLowerCase();
+    for (let i = 0; i < str.length/2; i++){
+        if (str[i] === str[str.length-1-i]){
+            return true;
+        }
+        else return false;
+    }
+}
+const expressionPalindrome = "Я несу гусеня";
+console.log(isPalindrome(expressionPalindrome));
 
 document.writeln(`Function №1: ${getMaxDigit(673972)} </br>`);
 document.writeln(`Function №2: ${getNumberToAPower(4,3)} </br>`);
@@ -117,3 +128,4 @@ document.writeln(`Function №6: ${countLetter( 'Асталавіста','А')} 
 document.writeln(`Function №7: ${convertCurrency('2500uah')} </br>`);
 document.writeln(`Function №8: ${getRandomPassword()} </br>`);
 document.writeln(`Function №9: ${deleteLetters('a', "blablabla")} </br>`);
+document.writeln(`Function №10: is the expression "${expressionPalindrome}" a palindrome? - ${isPalindrome(expressionPalindrome)} </br>`);
