@@ -110,14 +110,29 @@ console.log(deleteLetters('a', "blablabla"));
 function isPalindrome(str){
     str = str.replace(/\s/g, '').toLowerCase();
     for (let i = 0; i < str.length/2; i++){
-        if (str[i] === str[str.length-1-i]){
-            return true;
+        if (str[i] !== str[str.length-1-i]){
+            return false;
         }
-        else return false;
     }
+    return true;
 }
 const expressionPalindrome = "Я несу гусеня";
 console.log(isPalindrome(expressionPalindrome));
+
+function deleteDuplicateLetter(str){
+    str = str.toLowerCase();
+    let newStr = "";
+    for (let i = 0; i < str.length; i++){
+        let countLetter = str.split(str[i]).length-1;
+        if (countLetter > 1){
+            continue;
+        }
+        newStr += str[i];
+    }
+    return newStr;
+}
+const word = "Бісквіт був дуже ніжним";
+console.log(deleteDuplicateLetter(word));
 
 document.writeln(`Function №1: ${getMaxDigit(673972)} </br>`);
 document.writeln(`Function №2: ${getNumberToAPower(4,3)} </br>`);
