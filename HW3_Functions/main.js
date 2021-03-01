@@ -8,17 +8,19 @@ function getMaxDigit( inputNumber){
         }
     return Number(maxDigit);
 }
-console.log(getMaxDigit(673972));
-
+const userNumber = 673972;
+const funGetMaxDigit = getMaxDigit(userNumber);
+document.writeln(`Function №1: Maximum digit in a number ${userNumber} => ${funGetMaxDigit} </br>`);
 
 function getNumberToAPower (number,power){
     let count = 1;
     for(let i = 0; i < power; i++){
         count *= number;
     }
-    return count;
+    return `${number} ^ ${power} = ${count}`;
 }
-console.log(getNumberToAPower(4,3));
+const funGetNumberToAPower = getNumberToAPower(4,3);
+document.writeln(`Function №2: ${funGetNumberToAPower} </br>`);
 
 
 function firstLetterUp (str){
@@ -26,8 +28,9 @@ function firstLetterUp (str){
     const strLowerCase = str.toLowerCase();
     return strLowerCase[0].toUpperCase() + strLowerCase.slice(1);
 }
-console.log(firstLetterUp('taNia'));
-
+const userName = 'taNia';
+const funFirstLetterUp = firstLetterUp(userName);
+document.writeln(`Function №3: ${userName} => ${funFirstLetterUp} </br>`);
 
 function getAmountWithoutTax(sum){
     const tax = 0.195;
@@ -35,7 +38,9 @@ function getAmountWithoutTax(sum){
     sumWithoutTax = sum - sum * tax;
     return sumWithoutTax;
 }
-console.log(getAmountWithoutTax(1000));
+const salary = 1000;
+const funGetAmountWithoutTax = getAmountWithoutTax(salary);
+document.writeln(`Function №4: Salary without tax. ${salary} => ${funGetAmountWithoutTax} </br>`);
 
 
 function getRandomNumber(min, max) {
@@ -43,7 +48,10 @@ function getRandomNumber(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
 }
-console.log(getRandomNumber(10,5));
+const floorNumber = 5;
+const ceilNumber = 10;
+const funGetRandomNumber = getRandomNumber(floorNumber,ceilNumber);
+document.writeln(`Function №5: Random number from range [${floorNumber}; ${ceilNumber}] => ${funGetRandomNumber} </br>`);
 
 
 function countLetter(word, letter){
@@ -51,9 +59,10 @@ function countLetter(word, letter){
     for(let i = 0; i < word.length; i++){
         if (word[i].toLowerCase() === letter.toLowerCase()) count++;
     }
-    return count;
+    return `The letter "${letter}" in the word "${word}" occurs ${count} times`;
 }
-console.log(countLetter( 'Асталавіста','А'));
+const funCountLetter = countLetter( 'Асталавіста','а');
+document.writeln(`Function №6: ${funCountLetter} </br>`);
 
 
 function convertCurrency(cur){
@@ -76,7 +85,8 @@ function convertCurrency(cur){
         console.log("Invalid input. Please, enter the correct currency '$' or 'uah'!");
     }
 }
-console.log(convertCurrency('2500uah'));
+const funConvertCurrency = convertCurrency('2500uah');
+document.writeln(`Function №7: Currency exchange => ${funConvertCurrency} </br>`);
 
 
 function getRandomPassword(numberOfDigits = 8){
@@ -85,13 +95,14 @@ function getRandomPassword(numberOfDigits = 8){
         for (let i = 0; i < numberOfDigits; i++){
             password[i] = Math.floor(Math.random()*10);
         }
-        return Number(password.join(''));
+        return `Generated ${numberOfDigits}-digit password => ${Number(password.join(''))}`;
     }
     else{
         return 'The input is incorrect. Enter an integer!';
     }
 }
-console.log(getRandomPassword());
+const funGetRandomPassword = getRandomPassword();
+document.writeln(`Function №8: ${funGetRandomPassword} </br>`);
 
 
 function deleteLetters(letter,word){
@@ -103,9 +114,10 @@ function deleteLetters(letter,word){
             newWord += wordToLowerCase[i];
         }
     }
-    return newWord;
+    return `Remove the letter "${letter}" from the sentence "${word}" => ${newWord}`;
 }
-console.log(deleteLetters('a', "blablabla"));
+const funDeleteLetters = deleteLetters('a', "blablabla");
+document.writeln(`Function №9: ${funDeleteLetters} </br>`);
 
 function isPalindrome(str){
     str = str.replace(/\s/g, '').toLowerCase();
@@ -118,6 +130,7 @@ function isPalindrome(str){
 }
 const expressionPalindrome = "Я несу гусеня";
 console.log(isPalindrome(expressionPalindrome));
+document.writeln(`Function №10: Is the expression "${expressionPalindrome}" a palindrome? - ${isPalindrome(expressionPalindrome)} </br>`);
 
 function deleteDuplicateLetter(str){
     str = str.toLowerCase();
@@ -133,14 +146,4 @@ function deleteDuplicateLetter(str){
 }
 const word = "Бісквіт був дуже ніжним";
 console.log(deleteDuplicateLetter(word));
-
-document.writeln(`Function №1: ${getMaxDigit(673972)} </br>`);
-document.writeln(`Function №2: ${getNumberToAPower(4,3)} </br>`);
-document.writeln(`Function №3: ${firstLetterUp('taNia')} </br>`);
-document.writeln(`Function №4: ${getAmountWithoutTax(1000)} </br>`);
-document.writeln(`Function №5: ${getRandomNumber(5.3,10.5896)} </br>`);
-document.writeln(`Function №6: ${countLetter( 'Асталавіста','А')} </br>`);
-document.writeln(`Function №7: ${convertCurrency('2500uah')} </br>`);
-document.writeln(`Function №8: ${getRandomPassword()} </br>`);
-document.writeln(`Function №9: ${deleteLetters('a', "blablabla")} </br>`);
-document.writeln(`Function №10: is the expression "${expressionPalindrome}" a palindrome? - ${isPalindrome(expressionPalindrome)} </br>`);
+document.writeln(`Function №11: Remove letters from the expression "${word}" occurring more than once. => ${deleteDuplicateLetter(word)}`);
