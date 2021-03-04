@@ -46,4 +46,11 @@ console.log(getMedian(1, 2, 3, 4));
 function filterEvenNumbers(...numbers) {
     return numbers.filter(number => {if (number%2 && Number.isInteger(number)) return number;});
 }
-console.log(filterEvenNumbers(1, 2, -3, 4, 5, 4.3,'fdvf','7', 6));
+console.log(filterEvenNumbers(1, 2, -3, 4, 5, 4.3,'apple','7', 6));
+
+//6.Створіть функцію countPositiveNumbers(...numbers) – яка порахує кількість чисел більших 0
+// Приклад: countPositiveNumbers(1, -2, 3, -4, -5, 6) -> 3
+function countPositiveNumbers(...numbers) {
+    return numbers.filter(number => {if (number > 0 && typeof number === 'number') return number;}).length;
+}
+console.log(countPositiveNumbers(1, -2, 3, -4, -5, 6, 6.7, '5', 'apple'));
