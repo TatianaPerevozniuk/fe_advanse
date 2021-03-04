@@ -24,3 +24,22 @@ function getAverage(...numbers){
     return Number(newArray.reduce((accumulator,number) => accumulator + number / newArray.length,0).toFixed(2));
 }
 console.log(getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+
+
+// 4. Створіть функцію getMedian(...numbers) – яка рахує медіану всіх переданих в неї аргументів. НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ
+// Приклад: getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 23 Приклад: getMedian(1, 2, 3, 4) –> 2.5
+// Приклад: getMedian(1, 2, 3, 4, 5) –> 3
+function getMedian(...numbers) {
+    const newArray = numbers.filter(number => Number.isInteger(number));
+    newArray.sort((a,b) => a-b);
+
+    const lowMiddle = Math.floor( (newArray.length - 1) / 2);
+    const highMiddle = Math.ceil( (newArray.length - 1) / 2);
+    return ( newArray[lowMiddle] + newArray[highMiddle]) / 2;
+}
+console.log(getMedian(6, 2, 55, 11, 'jhj', 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+console.log(getMedian(1, 2, 3, 4, 6.7, 5));
+console.log(getMedian(1, 2, 3, 4));
+
+// 5. Створіть функцію filterEvenNumbers(...numbers) – яка фільтрує парні числа передані як аргументи функції
+// Приклад: filterEvenNumbers(1, 2, 3, 4, 5, 6) -> [1, 3, 5]
