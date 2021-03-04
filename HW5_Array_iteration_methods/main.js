@@ -44,13 +44,21 @@ console.log(getMedian(1, 2, 3, 4));
 // 5. Створіть функцію filterEvenNumbers(...numbers) – яка фільтрує парні числа передані як аргументи функції
 // Приклад: filterEvenNumbers(1, 2, 3, 4, 5, 6) -> [1, 3, 5]
 function filterEvenNumbers(...numbers) {
-    return numbers.filter(number => {if (number%2 && Number.isInteger(number)) return number;});
+    return numbers.filter(number => number%2 && Number.isInteger(number));
 }
 console.log(filterEvenNumbers(1, 2, -3, 4, 5, 4.3,'apple','7', 6));
 
 //6.Створіть функцію countPositiveNumbers(...numbers) – яка порахує кількість чисел більших 0
 // Приклад: countPositiveNumbers(1, -2, 3, -4, -5, 6) -> 3
 function countPositiveNumbers(...numbers) {
-    return numbers.filter(number => {if (number > 0 && typeof number === 'number') return number;}).length;
+    return numbers.filter(number => number > 0 && typeof number === 'number').length;
 }
 console.log(countPositiveNumbers(1, -2, 3, -4, -5, 6, 6.7, '5', 'apple'));
+
+//7.Створіть функцію getDividedByFive(...numbers) – яка відфільтрує усі елементи в масиві та залишить тільки ті,
+// які діляться на ціло на 5
+// Приклад: getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) -> [55, 55]
+function getDividedByFive(...numbers) {
+    return numbers.filter(number => number%5 === 0 && Number.isInteger(number));
+}
+console.log(getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2, 5.5, '5','apple'));
