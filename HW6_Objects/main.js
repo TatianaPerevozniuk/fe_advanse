@@ -36,3 +36,9 @@ const students = [{
         cosmology: [5, 5, 5, 5]
     }
 }];
+
+// 4. Ствроіть функцію getStudentsNames(students) --> ["Anton", "Tanya, "Victor"] – яка повертає імена студентів у алфавітному порядку.
+function getStudentsNames(students) {
+        return students.map((student, index) => students[index].name).sort();
+}
+console.log(getStudentsNames(students));
