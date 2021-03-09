@@ -24,18 +24,26 @@ const students = [{
         cosmology: [5, 5, 5, 5]
     }
 }];
+const student = students[0];
 // 1. Створіть функцію getSubjects(students[0] --> ["Math", "Algorithms", "Data science"] - яка повертає список предметів
 // для конкретного студента. Зверніть увагу – назву предмету необхідно повертати з великої літери, а _ – замінити на пробіл
-function getSubjects(students) {
-    for (let i = 0; i < students.length; i++) {
-        let student = students[i].name;
-        let keySubjects = Object.keys(students[i].subjects)
-                                .map(word => word[0].toUpperCase() + word.slice(1).replace('_',' '))
-                                .join(", ").split(',');
-        console.log(`${student} --> ${keySubjects}`);
-    }
+// function getSubjects(students) {
+//     for (let i = 0; i < students.length; i++) {
+//         let student = students[i].name;
+//         let keySubjects = Object.keys(students[i].subjects)
+//                                 .map(word => word[0].toUpperCase() + word.slice(1).replace('_',' '))
+//                                 .join(", ").split(',');
+//         console.log(`${student} --> ${keySubjects}`);
+//     }
+// }
+// console.log(getSubjects(students));
+
+function getSubjects(student) {
+    return Object.keys(student.subjects)
+            .map(word => word[0].toUpperCase() + word.slice(1).replace('_',' '))
+            .join(", ").split(',');
 }
-console.log(getSubjects(students));
+console.log(getSubjects(student));
 
 // 2. Створіть функцію getAverageMark(students[0]) --> 3.79 – яка поверне середню оцінку по усім предметам для переданого
 // студента НЕ МАСИВА СТУДЕНТІВ. Оцінку округліть до 2ого знаку. Можна використовувати функції, написані у попередніх
@@ -48,7 +56,6 @@ function getAverageMark(student) {
     return getAverage(Object.values(student.subjects)
                  .reduce((a, b) => a.concat(b)));
 }
-const student = students[0];
 console.log(getAverageMark(student));
 
 // 3. Створіть функцію getStudentInfo(students[0]) --> { "course": 3, "name": "Tanya", "averageMark": 3.79} – яка повертає
@@ -94,7 +101,16 @@ console.log(getBestStudent(students));
 // 6. Створіть функцію calculateWordLetters("тест") --> { "т": 2, "е": 1, "с": 1 } – яка повертає обє'кт,
 // в якому ключі це ' + 'букви у слові, а значення – кількість їх повторень.
 function calculateWordLetters(word) {
-
+    const arrayWord = word.split('');
+    function callback(allLetters, letter) {
+        if (letter in allLetters) {
+            allLetters[letter] ++;
+        } else {
+            allLetters[letter] = 1;
+        }
+        return allLetters;
+    }
+    return arrayWord.reduce(callback,{});
 }
 const word = "тест";
 console.log(calculateWordLetters(word));
