@@ -10,7 +10,7 @@ class Student {
         };
         this.recover = function () {
             this.dismissed = false;
-            this.marks = [];
+            this.marks = marks;
         };
     }
 
@@ -30,6 +30,8 @@ class Student {
         return marks !== null ? Number((marks.reduce((sum, mark) => (sum + mark)) / marks.length).toFixed(2)) : null;
     }
 }
+const dasha = new Student('Kiev Polytechnic Institute', 1, 'Perevozniuk Daria Igorevna', [5,3,4,5]);
+console.log(dasha);
 
 const tania = new Student('Kiev Polytechnic Institute', 5, 'Perevozniuk Tatiana Igorevna');
 console.log(tania);
@@ -49,9 +51,6 @@ tania.setMarks = 5;
 console.log('Student dismissed. Marks: ', tania.getMarks, '; Average Mark: ', Student.getAverageMark(tania.marks));
 
 tania.recover();
-tania.setMarks = 5;
-tania.setMarks = 4;
-tania.setMarks = 5;
 console.log('Student recovered. Marks: ', tania.getMarks, '; Average Mark: ', Student.getAverageMark(tania.marks));
 
 console.log(tania);
