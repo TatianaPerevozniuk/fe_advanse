@@ -1,0 +1,69 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("./fonts/LatoRegular.woff2") format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+*,
+*:before,
+*:after{
+    box-sizing: border-box;
+}
+body {
+    /*width: 100%;*/
+    height: 100vh;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-image: url("./wp.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.keys {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 20%;
+}
+.key{
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+
+    width: 100%;
+    max-width: 100px;
+    min-width: 50px;
+    background-color: grey;
+    opacity: 0.7;
+
+    border-radius: 100px;
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 24px;
+    color: #FFFFFF;
+    transition: all 0.3s linear;
+}
+
+.note {
+    font-weight: 400;
+    font-size: 18px;
+}
+.playing {
+    transform: scale(1.1);
+    box-shadow: 0 0 1rem white;
+}
