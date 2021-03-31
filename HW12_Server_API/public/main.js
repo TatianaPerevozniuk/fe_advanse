@@ -24,3 +24,11 @@
 //     повинен перекластись на мову вуки.
 //     Для цього достатньо додати до будь-якого запиту: ?format=wookiee.
 //     При фантазії – можете ще і текст кнопок перекласти :)
+
+
+axios.get('https://swapi.dev/api/films/2/')
+    .then((res) => {
+        const urlPeople = res.data.characters;
+
+        urlPeople.map((p, i) => console.log(p));
+    })
