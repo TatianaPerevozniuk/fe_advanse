@@ -25,10 +25,50 @@
 //     Для цього достатньо додати до будь-якого запиту: ?format=wookiee.
 //     При фантазії – можете ще і текст кнопок перекласти :)
 
+// Information to reach API
+const urlFilms = 'https://swapi.dev/api/films/';
+const urlPlanets = 'https://swapi.dev/api/planets/';
+// const queryParams = 'rel_jja=';
 
-axios.get('https://swapi.dev/api/films/2/')
-    .then((res) => {
-        const urlPeople = res.data.characters;
+// Selecting page elements
 
-        urlPeople.map((p, i) => console.log(p));
-    })
+const inputField = document.querySelector('#input');
+const submit = document.querySelector('#submit');
+const form = document.getElementById('form');
+const responseField = document.querySelector('#responseField');
+
+
+const getInformation = async () => {
+        const inputQuery = inputField.value;
+        const endpointFilms = await axios.get(`${urlFilms}${inputQuery}/`);
+        const urlsPeople = endpointFilms.data.characters;
+        const endpointsPeople = urlsPeople.map((url) => url.replace('http', 'https'));
+        endpointsPeople.forEach(endpoint => getInfo(endpoint));
+}
+
+const getInfo = async (url) => {
+    const urlPeople = await axios.get(url);
+    const name = urlPeople.data.name;
+    const birth_year = urlPeople.data.birth_year;
+    const gender = urlPeople.data.gender;
+
+    responseField.insertAdjacentHTML('beforeend',`
+        <article class="article">
+            <p class="name">Name: ${name}</p>
+            <p class="birth_year">Birth year: ${birth_year}</p>
+            <p class="gender">Gender: ${gender}</p>
+        </article>
+    `);
+}
+
+const displayInfo = (event) => {
+    event.preventDefault();
+    // while(responseField.firstChild){
+    //     responseField.removeChild(responseField.firstChild)
+    // }
+    getInformation();
+}
+
+submit.addEventListener('click', displayInfo);
+
+

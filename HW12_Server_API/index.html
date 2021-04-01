@@ -15,20 +15,14 @@
 <!--    <button class="btn_getInfo" type="submit">Get information</button>-->
 <!--    <button class="btn_getPlanets" type="submit">Get planets</button>-->
 <!--</header>-->
-
-<!--<main class="container">-->
-<!--    <div class="grid">-->
-<!--    </div>-->
-<!--</main>-->
-
+<header> <h1> Star Wars </h1> </header>
 <main id="main">
     <div class="container">
+        <h2>Enter the movie number to get the characters of this movie</h2>
 
-        <h1>Enter the movie number</h1>
-
-        <form id="form" autocomplete="off">
-            <input type="text" id="input" value="2">
-            <button id="submit">Get information</button>
+        <form id="form">
+            <input type="number" id="input" value="2" min="1" max="6">
+            <button type="submit" id="submit" >Get information</button>
         </form>
 
         <div id="responseField">
