@@ -28,16 +28,15 @@
 // Information to reach API
 const urlFilms = 'https://swapi.dev/api/films/';
 const urlPlanets = 'https://swapi.dev/api/planets/';
-// const queryParams = 'rel_jja=';
+// const queryParams = '?format=wookiee';
 
 // Selecting page elements
-
 const inputField = document.querySelector('#input');
-const submit = document.querySelector('#submit');
-const form = document.getElementById('form');
+const submit = document.querySelector('.submit');
+const btn_getPlanets = document.querySelector('.btn_getPlanets');
 const responseField = document.querySelector('#responseField');
 
-
+//--------------------getInformationCharacters----------------------------------------------------
 const getInformation = async () => {
         const inputQuery = inputField.value;
         const endpointFilms = await axios.get(`${urlFilms}${inputQuery}/`);
@@ -63,12 +62,37 @@ const getInfo = async (url) => {
 
 const displayInfo = (event) => {
     event.preventDefault();
-    // while(responseField.firstChild){
-    //     responseField.removeChild(responseField.firstChild)
-    // }
+    while(responseField.firstChild){
+        responseField.removeChild(responseField.firstChild)
+    }
     getInformation();
 }
 
 submit.addEventListener('click', displayInfo);
+
+//--------------------getPlanets----------------------------------------------------
+const getPlanets = async () => {
+    const dataPlanets = await axios.get(`${urlPlanets}`);
+    const endpointPlanets = dataPlanets.data.results;
+    endpointPlanets.forEach((endpoint) => getPlanet(endpoint));
+}
+const getPlanet = async (endpoint) => {
+    const namePlanet = endpoint.name;
+    console.log(namePlanet);
+    responseField.insertAdjacentHTML('beforeend',`
+        <article class="article">
+            <p class="namePlanet">Name planet: ${namePlanet}</p>
+        </article>
+    `);
+}
+const displayInfoPlanets = (event) => {
+    event.preventDefault();
+    while(responseField.firstChild){
+        responseField.removeChild(responseField.firstChild)
+    }
+    getPlanets();
+}
+
+btn_getPlanets.addEventListener('click', displayInfoPlanets);
 
 

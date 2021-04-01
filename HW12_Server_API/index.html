@@ -10,23 +10,20 @@
     <link rel="stylesheet" type="text/css" href="public/style.css">
 </head>
 <body>
-
-<!--<header class="btn">-->
-<!--    <button class="btn_getInfo" type="submit">Get information</button>-->
-<!--    <button class="btn_getPlanets" type="submit">Get planets</button>-->
-<!--</header>-->
-<header> <h1> Star Wars </h1> </header>
+<header><h1> Star Wars </h1></header>
 <main id="main">
     <div class="container">
-        <h2>Enter the movie number to get the characters of this movie</h2>
 
-        <form id="form">
-            <input type="number" id="input" value="2" min="1" max="6">
-            <button type="submit" id="submit" >Get information</button>
-        </form>
+        <h2>Enter the movie number to get the characters of this movie</h2>
+        <div>
+            <form id="form">
+                <input type="number" id="input" value="2" min="1" max="6">
+                <button type="submit" class="submit">Get information</button>
+            </form>
+            <button class="btn_getPlanets" type="submit">Get planets all</button>
+        </div>
 
         <div id="responseField">
-
         </div>
 
     </div>

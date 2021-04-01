@@ -66,7 +66,7 @@ h2 {
     color: #ffffff;
 }
 
-#submit {
+.submit, .btn_getPlanets {
     width: 125px;
     height: 30px;
     border-radius: 2px;
@@ -115,12 +115,12 @@ h2 {
     line-height: 24px;
     color: #FFFFFF;
 }
-#submit:hover {
+.submit:hover, .btn_getPlanets:hover {
     color: #ffffff;
     cursor: pointer;
 }
 
-#submit:active {
+.submit:active, .btn_getPlanets:active {
     background-color: #ffffff;
     border-color: #ffffff;
     color: #ef6b68;
