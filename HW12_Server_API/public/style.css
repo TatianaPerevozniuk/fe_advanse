@@ -69,7 +69,7 @@ h2 {
     color: #ffffff;
 }
 
-.submit, .btn_getPlanets {
+.submit, .btn_getPlanets, .btn_nextPlanets {
     width: 125px;
     height: 30px;
     border-radius: 2px;
@@ -119,14 +119,17 @@ h2 {
     line-height: 24px;
     color: #FFFFFF;
 }
-.submit:hover, .btn_getPlanets:hover {
+.submit:hover, .btn_getPlanets:hover, .btn_nextPlanets:hover {
     color: #ffffff;
     cursor: pointer;
 }
 
-.submit:active, .btn_getPlanets:active {
+.submit:active, .btn_getPlanets:active, .btn_nextPlanets:active {
     background-color: #ffffff;
     border-color: #ffffff;
     color: #ef6b68;
     cursor: pointer;
+}
+.btn_nextPlanets {
+    margin-left: 5px;
 }
