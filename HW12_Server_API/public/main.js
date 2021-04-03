@@ -27,13 +27,15 @@
 
 // Information to reach API
 const urlFilms = 'https://swapi.dev/api/films/';
-const urlPlanets = 'https://swapi.dev/api/planets/';
-// const queryParams = '?format=wookiee';
+const urlPlanets = 'https://swapi.dev/api/planets/?page=';
+let nextPagePlanets = 1;
+// const wookieeParams = '?format=wookiee';
 
 // Selecting page elements
 const inputField = document.querySelector('#input');
 const submit = document.querySelector('.submit');
 const btn_getPlanets = document.querySelector('.btn_getPlanets');
+const btn_nextPlanets = document.querySelector('.btn_nextPlanets');
 const responseField = document.querySelector('#responseField');
 
 //--------------------getInformationCharacters----------------------------------------------------
@@ -71,8 +73,8 @@ const displayInfo = (event) => {
 submit.addEventListener('click', displayInfo);
 
 //--------------------getPlanets----------------------------------------------------
-const getPlanets = async () => {
-    const dataPlanets = await axios.get(`${urlPlanets}`);
+const getPlanets = async (nextPage = 1) => {
+    const dataPlanets = await axios.get(`${urlPlanets}${nextPage}`);
     const endpointPlanets = dataPlanets.data.results;
     endpointPlanets.forEach((endpoint) => getPlanet(endpoint));
 }
@@ -85,14 +87,25 @@ const getPlanet = async (endpoint) => {
         </article>
     `);
 }
-const displayInfoPlanets = (event) => {
+const displayPlanets = (event) => {
     event.preventDefault();
     while(responseField.firstChild){
         responseField.removeChild(responseField.firstChild)
     }
     getPlanets();
 }
+const displayNextPlanets = (event) => {
+    event.preventDefault();
+    while(responseField.firstChild){
+        responseField.removeChild(responseField.firstChild)
+    }
+    if (nextPagePlanets === 6) nextPagePlanets = 0;
+    nextPagePlanets += 1;
+    getPlanets(nextPagePlanets);
 
-btn_getPlanets.addEventListener('click', displayInfoPlanets);
+}
+
+btn_getPlanets.addEventListener('click', displayPlanets);
+btn_nextPlanets.addEventListener('click', displayNextPlanets);
 
 
