@@ -1,0 +1,19 @@
+{
+  "name": "node_js_demo",
+  "version": "1.0.0",
+  "description": "Some basic node js application",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon ./src/index.js",
+    "watchES": "nodemon ./src/index.mjs"
+  },
+  "author": "Perevozniuk Tatiana",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.21"
+  }
+}
