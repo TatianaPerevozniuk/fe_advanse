@@ -1,5 +1,6 @@
 
 import {sale,toPay,netProfit} from "./hw/HW1_variables_and_types/hw1.js";
+import './hw/HW2_Cycles&Branching/style.css';
 // import {firstUserNumber, secondUserNumber, skipEvenNumbers} from "./hw/HW2_Cycles&Branching/main.js";
 
 console.log('Import from HW1')
