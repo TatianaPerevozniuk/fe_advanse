@@ -22,14 +22,17 @@ secondUserNumber = pullNumber('second');
 
 skipEvenNumbers = confirm("Do you want to skip all paired numbers from a given range? " +
     "These numbers will not be taken into account in the calculation!");
-const minNumber = Math.min(firstUserNumber,secondUserNumber);
-const maxNumber = Math.max(firstUserNumber,secondUserNumber);
-for(let count = minNumber;count <= maxNumber;count++){
+const sumNumbers = function() {
+    const minNumber = Math.min(firstUserNumber,secondUserNumber);
+    const maxNumber = Math.max(firstUserNumber,secondUserNumber);
+    for(let count = minNumber;count <= maxNumber;count++){
         if(skipEvenNumbers && !(count % 2)){
             continue;
         }
         SumRangeOfNumbers += count;
-}
+    }
+};
+sumNumbers();
 alert(`Sum range of numbers: ${SumRangeOfNumbers}`);
 
-export {firstUserNumber, secondUserNumber, skipEvenNumbers,SumRangeOfNumbers}
+export {firstUserNumber, secondUserNumber, skipEvenNumbers,SumRangeOfNumbers,sumNumbers, pullNumber}
